@@ -14,10 +14,7 @@ public class CustomCharacterController : MonoBehaviour
         public FootStepAndGroundCheck leftFoot;
         public FootStepAndGroundCheck rightFoot;
     }
-
-    //public GameObject projectile;
     
-    // state of char 
     public int state = 0;
 
     private int _jumpState = 0;
@@ -68,14 +65,6 @@ public class CustomCharacterController : MonoBehaviour
             _correctValues = SetParameters();
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            print("left Click");
-           // Vector3 x = new Vector3(projectile.transform.position.x, projectile.transform.position.y,
-           //     projectile.transform.position.z + 10f);
-           // projectile.transform.position=Vector3.Lerp(projectile.transform.position,x,5f);
-        }
-        
         ChangeViewWithCamera();
 
         MoveWithAnimation();
@@ -86,9 +75,7 @@ public class CustomCharacterController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && jumpActive)
         {
-            _applyJumpForce = true;
-            jumpTimer = 0;
-            jumpMode = true;
+            
         }
 
         if (jumpTimer < jumpTime)
@@ -97,8 +84,6 @@ public class CustomCharacterController : MonoBehaviour
                 JumpVelocity();
             jumpTimer += Time.deltaTime;
         }
-
-        
 
         if (_charCtrl.velocity.x == 0)
             state = 0;
@@ -138,8 +123,6 @@ public class CustomCharacterController : MonoBehaviour
         {
             _charCtrl.Move(new Vector3(jumpForceHorizontalRun, jumpForce, 0) * Time.deltaTime);
         }
-
-
 
     }
 
