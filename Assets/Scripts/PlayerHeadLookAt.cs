@@ -16,6 +16,6 @@ public class PlayerHeadLookAt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetLookAtPosition(lookAtObject);
+        animator.SetLookAtPosition(lookAtObject.transform.position);
     }
 }
